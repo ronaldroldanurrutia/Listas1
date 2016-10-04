@@ -53,7 +53,7 @@ void treeprint(struct tnode *p){
         treeprint(p->right);
     }
 }
-char *strdup(char s){
+char *hola(char s){
     char *p;
     p=(char *)malloc(strlen(s)+1);
     if(p!=NULL){
@@ -65,7 +65,7 @@ struct tnode *addtree(struct *p,char *w){
     int cond;
     if(p==NULL){
         p=talloc();
-        p->word=strdup(w);
+        p->word=hola(w);
         p->cout=1;
         p->left=p->right=NULL;
     }
@@ -75,10 +75,10 @@ struct tnode *addtree(struct *p,char *w){
         }
         else{
             if(cond<0){
-                p->addtree(p->left,w);
+                p->left=addtree(p->left,w);
             }
             else{
-                p->addtree(p->right,w);
+                p->right=addtree(p->right,w);
             }
         }
     }
